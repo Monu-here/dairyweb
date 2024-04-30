@@ -1,0 +1,313 @@
+.about-us {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  z-index: 9;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  position: relative;
+
+  .welcome {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    box-shadow: $card-box-shadow;
+    height: 800px;
+    width: 100%;
+    overflow: hidden;
+    background-color: white;
+
+    .top {
+      padding: 40px;
+      height: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      span {
+        color: $secondary-color;
+        font-size: $section-font-size;
+        font-weight: $section-font-weight;
+      }
+
+      h1 {
+        color: $primary-text-color;
+        font-size: $mobile-heading-font-size;
+        font-weight: $heading-font-weight;
+      }
+
+      p {
+        line-height: $paragraph-line-height;
+      }
+
+      a {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        text-decoration: none;
+        color: $primary-color;
+      }
+    }
+    .buttom {
+      margin: 0;
+      padding: 0;
+      height: 50%;
+      overflow: hidden;
+      .welcome-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  .about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+    padding-top: 50px;
+
+    .left {
+      width: 100%;
+      height: 600px;
+      margin: 0;
+      padding: 0;
+      position: relative;
+      .image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius:10px;
+      }
+
+      .left-badge {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 15%;
+        width: 100%;
+        background-color: $primary-text-color;
+        border-radius: 0px 0px 10px 10px;
+        z-index: 9;
+
+        h3 {
+          color: white;
+          span {
+            color: $secondary-color;
+            font-size: $section-font-size;
+            font-weight: $section-font-weight;
+          }
+        }
+      }
+    }
+
+    .center {
+      width: 100%;
+      height: 450px;
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+      z-index: 1;
+      .image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .right {
+      display: flex;
+      flex-direction: column;
+      padding-top: 20px;
+
+      span {
+        color: $secondary-color;
+        font-size: $section-font-size;
+        font-weight: $section-font-weight;
+      }
+
+      h1 {
+        font-size: $mobile-heading-font-size;
+        color: $primary-text-color;
+      }
+
+      p {
+        font-size: $paragraph-font-size;
+        font-weight: $parargraph-font-weight;
+        line-height: $paragraph-line-height;
+      }
+      .vision-mission {
+        color: $primary-text-color;
+        display: flex;
+        width: 100%;
+        align-items: center;
+        gap: 50px;
+
+        .vision .mission {
+          display: flex;
+          flex-direction: column;
+        }
+
+        h5 {
+          margin: 0;
+          padding: 0;
+          font-size: $section-font-size;
+        }
+        ul {
+          color: $paragraph-font-color;
+          font-size: $paragraph-font-size;
+          list-style: none;
+          padding: 0;
+
+          li {
+            line-height: $paragraph-line-height;
+            font-size: $thin-font-size;
+            display: flex;
+            align-items: center;
+            gap: 5px
+          }
+        }
+      }
+
+      button {
+        @include mobileButton();
+        display: flex;
+        gap: 5px;
+        align-items: center;
+        justify-content: center;
+        width: 60%;
+      }
+    }
+  }
+
+  .experience-card {
+    position: absolute;
+    left: 0;
+
+    right: 0;
+    bottom: -400px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-radius: $card-border-radius;
+    background-color: #fff;
+    box-shadow: $card-box-shadow;
+    padding: 20px;
+
+    .experience {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+
+      .experience-logo {
+        width: 5%;
+        height: auto;
+        margin: 0;
+        padding: 10px;
+        object-fit: cover;
+
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+      .experience-details {
+        h3 {
+          color: $primary-text-color;
+          margin: 0;
+          padding: 0;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .about-us {
+    margin-top: 50px;
+
+    .welcome {
+      flex-direction: row;
+      border-radius: 80px 20px 80px 20px;
+
+      height: auto;
+
+      .top {
+        height: auto;
+
+        h1 {
+          font-size: $heading-font-size;
+        }
+      }
+      .buttom {
+        height: auto;
+      }
+    }
+
+    .about{
+      .right{
+        h1{
+          font-size: $heading-font-size
+        }
+        button{
+          @include primaryButton();
+        }
+      }
+    }
+
+    .experience-card {
+      flex-direction: row;
+      justify-content: space-between;
+      bottom: -180px;
+
+      .experience {
+        width: 30%;
+        .experience-logo {
+          width: auto;
+          aspect-ratio: 1;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1100px) {
+  .about-us {
+    .about {
+      flex-direction: row;
+      align-items: end;
+
+      .left {
+        .left-badge {
+          width: 130%;
+          bottom: -30px;
+          border-radius: 0px 80px 0px 80px;
+        }
+        .image{
+          border-radius:  80px 0px 0px 80px;
+        }
+      }
+
+      .center{
+        .image{
+          border-radius: 0px 80px 0px 0px;
+        }
+      }
+
+      .right {
+        padding-left: 20px;
+      }
+    }
+  }
+}

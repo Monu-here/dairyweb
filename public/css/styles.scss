@@ -1,0 +1,27 @@
+@import "./partials/variables";
+@import "./partials/reset";
+@import "./partials/utils";
+
+@import "./partials/base";
+@import "./partials/mixins";
+
+
+//Home page
+@import "./home/header/header.scss";
+@import "./home/hero/hero.scss";
+@import "./home/about-us/aboutus.scss";
+@import "./home/products/products.scss";
+@import "./home/services/services.scss";
+@import "./home/advantages/advantages.scss";
+@import "./home/testimonials/testimonials.scss";
+@import "./home/programs/programs.scss";
+@import "./home/blogs/blogs.scss";
+@import "./home/newsletter/newsletter.scss";
+@import "./home/footer/footer.scss";
+
+//About Page
+@import "./about/header/about-heading.scss";
+@import "./about/aboutus/about-aboutus.scss";
+@import "./about/why-choose-us/why-choose-us.scss";
+@import "./products/all-products/all-products.scss";
+@import "./contact/contact-form.scss"

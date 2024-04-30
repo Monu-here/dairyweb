@@ -1,0 +1,112 @@
+.all-products {
+  min-height: calc(100vh - 100px);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 50px;
+  gap: 30px;
+  margin: 50px 0px;
+
+  .products-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
+    gap: 20px;
+
+    .product {
+      height: 450px;
+      width: 250px;
+      padding: 20px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: $card-box-shadow;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      cursor: pointer;
+
+      .product-image {
+        height: 60%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+      h1 {
+        color: $primary-text-color;
+        font-size: $product-title-font-size;
+        margin: 0;
+        padding: 0;
+      }
+
+      p {
+        line-height: $paragraph-line-height;
+      }
+
+      .actions {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: $secondary-color;
+        span {
+          font-size: $section-font-size;
+          font-weight: $section-font-weight;
+        }
+
+        .buttons {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+
+          .product-button {
+            display: flex;
+            align-items: center;
+            border: none;
+            background-color: #ededf0;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
+    .product:hover {
+      background-color: $primary-text-color;
+
+      h1 {
+        color: white;
+      }
+      p {
+        color: white;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .all-products {
+    .products-container {
+      .product {
+        border-radius: 80px 20px 20px 20px;
+      }
+    }
+
+    .product-heading {
+      font-size: $heading-font-size;
+    }
+
+    .all-products {
+      @include primaryButton();
+    }
+  }
+}
