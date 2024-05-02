@@ -124,117 +124,43 @@
         <span>Our all products</span>
         <h1 class="product-heading">View All Product</h1>
         <div class="products-container container">
-          <div class="product">
-            <figure class="product-image">
-              <img src="./public/milk.png" alt="" />
-            </figure>
-            <h1>Fresh Milk</h1>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-            <div class="actions">
-              <span>Rs. 80</span>
-              <div class="buttons">
-                <button class="product-button">
-                  <img
-                    src="./public/heart.svg"
-                    alt=""
-                    class="product-button-image"
-                  />
-                </button>
-                <button class="product-button">
-                  <img
-                    src="./public/cart.svg"
-                    alt=""
-                    class="product-button-image"
-                  />
-                </button>
+            @foreach ($products as $product )
+            <div class="product">
+                <figure class="product-image">
+                  <img src="{{ asset('product_images/' . $product->image) }}" />
+                </figure>
+                <h1>{{ $product->name }}</h1>
+                <p>{{ $product->description }}</p>
+                <div class="actions">
+                  <span>Rs.{{ $product->price }}</span>
+                  <div class="buttons">
+                    <button class="product-button">
+                      <img
+                        src="./heart.svg"
+                        alt=""
+                        class="product-button-image"
+                      />
+                    </button>
+                    <button class="product-button">
+                      <img
+                        src="./cart.svg"
+                        alt=""
+                        class="product-button-image"
+                      />
+                    </button>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-          <div class="product">
-            <figure class="product-image">
-              <img src="./public/cheese.png" alt="" />
-            </figure>
-            <h1>Fresh Cheese</h1>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-            <div class="actions">
-              <span>Rs. 80</span>
-              <div class="buttons">
-                <button class="product-button">
-                  <img
-                    src="./public/heart.svg"
-                    alt=""
-                    class="product-button-image"
-                  />
-                </button>
-                <button class="product-button">
-                  <img
-                    src="./public/cart.svg"
-                    alt=""
-                    class="product-button-image"
-                  />
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="product">
-            <figure class="product-image">
-              <img src="./public/curd.png" alt="" />
-            </figure>
-            <h1>Fresh Curd</h1>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-            <div class="actions">
-              <span>Rs. 80</span>
-              <div class="buttons">
-                <button class="product-button">
-                  <img
-                    src="./public/heart.svg"
-                    alt=""
-                    class="product-button-image"
-                  />
-                </button>
-                <button class="product-button">
-                  <img
-                    src="./public/cart.svg"
-                    alt=""
-                    class="product-button-image"
-                  />
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="product">
-            <figure class="product-image">
-              <img src="./public/cream.png" alt="" />
-            </figure>
-            <h1>Fresh Milk</h1>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-            <div class="actions">
-              <span>Rs. 80</span>
-              <div class="buttons">
-                <button class="product-button">
-                  <img
-                    src="./public/heart.svg"
-                    alt=""
-                    class="product-button-image"
-                  />
-                </button>
-                <button class="product-button">
-                  <img
-                    src="./public/cart.svg"
-                    alt=""
-                    class="product-button-image"
-                  />
-                </button>
-              </div>
-            </div>
-          </div>
+
+            @endforeach
+
         </div>
-        <button
+        <a
           class="all-products-btn"
-          onclick="window.location.href = 'products.html';"
+          href="{{ route('product')}}"
         >
-          See all products <img src="./public/arrow.svg" alt="" />
-        </button>
+          See all products <img src="./arrow.svg" alt="" />
+    </a>
       </section>
       <!--Our Products End-->
       <!--Dairy Services-->

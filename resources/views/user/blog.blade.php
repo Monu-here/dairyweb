@@ -17,188 +17,41 @@
     <!--Page heading end-->
     <div class="blogs-container container">
       <div class="blogs">
-          <div class="blog">
+        @foreach ($blogs as $blog)
+
+        <div class="blog">
             <figure>
-              <img src="./public/milk matters.jpg" alt="" />
+              <img src="{{ asset('blog_images/' . $blog->image) }}" alt="" />
 
               <span>information</span>
             </figure>
             <div class="blog-details">
               <h2>
-                Milk Matters: Exploring the Wonders of Nature's Perfect Food
+                {{ $blog->title }}
               </h2>
               <div class="published-details">
                 <span>
-                  <img src="./public/author.svg" alt="" />
-                  Sujan Rai
+                  <img src="./author.svg" alt="" />
+                  Admin
                 </span>
                 <span>
-                  <img src="./public/calendar.svg" alt="" />
-                  March 3, 2023
-                </span>
-              </div>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum
-                laudantium totam enim temporibus incidunt unde inventore libero
-                deleniti nostrum possimus hic, commodi aliquam voluptatibus illo
-                sunt sequi amet, suscipit nisi?
-              </p>
-              <a href="#"
-                >Read More <img src="./public/arrow copy.svg" alt=""
-              /></a>
-            </div>
-          </div>
-          <div class="blog">
-            <figure>
-              <img src="./public/delicious.jpg" alt="" />
-              <span>information</span>
-            </figure>
-            <div class="blog-details">
-              <h2>Udderly Delicious: A Journey into Premium Dairy Products</h2>
-              <div class="published-details">
-                <span>
-                  <img src="./public/author.svg" alt="" />
-                  Sujan Rai
-                </span>
-                <span>
-                  <img src="./public/calendar.svg" alt="" />
-                  March 3, 2023
-                </span>
-              </div>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum
-                laudantium totam enim temporibus incidunt unde inventore libero
-                deleniti nostrum possimus hic, commodi aliquam voluptatibus illo
-                sunt sequi amet, suscipit nisi?
-              </p>
-              <a href="#"
-                >Read More <img src="./public/arrow copy.svg" alt=""
-              /></a>
-            </div>
-          </div>
-          <div class="blog">
-            <figure>
-              <img src="./public/milk matters.jpg" alt="" />
+                  <img src="./calendar.svg" alt="" />
+                  {{ $blog->updated_at->format('Y-m-d') }}
 
-              <span>information</span>
-            </figure>
-            <div class="blog-details">
-              <h2>
-                Milk Matters: Exploring the Wonders of Nature's Perfect Food
-              </h2>
-              <div class="published-details">
-                <span>
-                  <img src="./public/author.svg" alt="" />
-                  Sujan Rai
-                </span>
-                <span>
-                  <img src="./public/calendar.svg" alt="" />
-                  March 3, 2023
                 </span>
               </div>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum
-                laudantium totam enim temporibus incidunt unde inventore libero
-                deleniti nostrum possimus hic, commodi aliquam voluptatibus illo
-                sunt sequi amet, suscipit nisi?
+                {{ $blog->content}}
               </p>
               <a href="#"
-                >Read More <img src="./public/arrow copy.svg" alt=""
+                >Read More <img src="./arrow copy.svg" alt=""
               /></a>
             </div>
           </div>
-        </div>
-        <div class="blogs">
-          <div class="blog">
-            <figure>
-              <img src="./public/milk matters.jpg" alt="" />
 
-              <span>information</span>
-            </figure>
-            <div class="blog-details">
-              <h2>
-                Milk Matters: Exploring the Wonders of Nature's Perfect Food
-              </h2>
-              <div class="published-details">
-                <span>
-                  <img src="./public/author.svg" alt="" />
-                  Sujan Rai
-                </span>
-                <span>
-                  <img src="./public/calendar.svg" alt="" />
-                  March 3, 2023
-                </span>
-              </div>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum
-                laudantium totam enim temporibus incidunt unde inventore libero
-                deleniti nostrum possimus hic, commodi aliquam voluptatibus illo
-                sunt sequi amet, suscipit nisi?
-              </p>
-              <a href="#"
-                >Read More <img src="./public/arrow copy.svg" alt=""
-              /></a>
-            </div>
-          </div>
-          <div class="blog">
-            <figure>
-              <img src="./public/delicious.jpg" alt="" />
-              <span>information</span>
-            </figure>
-            <div class="blog-details">
-              <h2>Udderly Delicious: A Journey into Premium Dairy Products</h2>
-              <div class="published-details">
-                <span>
-                  <img src="./public/author.svg" alt="" />
-                  Sujan Rai
-                </span>
-                <span>
-                  <img src="./public/calendar.svg" alt="" />
-                  March 3, 2023
-                </span>
-              </div>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum
-                laudantium totam enim temporibus incidunt unde inventore libero
-                deleniti nostrum possimus hic, commodi aliquam voluptatibus illo
-                sunt sequi amet, suscipit nisi?
-              </p>
-              <a href="#"
-                >Read More <img src="./public/arrow copy.svg" alt=""
-              /></a>
-            </div>
-          </div>
-          <div class="blog">
-            <figure>
-              <img src="./public/milk matters.jpg" alt="" />
+        @endforeach
 
-              <span>information</span>
-            </figure>
-            <div class="blog-details">
-              <h2>
-                Milk Matters: Exploring the Wonders of Nature's Perfect Food
-              </h2>
-              <div class="published-details">
-                <span>
-                  <img src="./public/author.svg" alt="" />
-                  Sujan Rai
-                </span>
-                <span>
-                  <img src="./public/calendar.svg" alt="" />
-                  March 3, 2023
-                </span>
-              </div>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum
-                laudantium totam enim temporibus incidunt unde inventore libero
-                deleniti nostrum possimus hic, commodi aliquam voluptatibus illo
-                sunt sequi amet, suscipit nisi?
-              </p>
-              <a href="#"
-                >Read More <img src="./public/arrow copy.svg" alt=""
-              /></a>
-            </div>
-          </div>
+
         </div>
     </div>
   </main>

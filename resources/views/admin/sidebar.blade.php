@@ -9,35 +9,38 @@
             <li class="sidebar-item">
                 <a href="#" class="sidebar-link">
                     <i class="fa fa-user" aria-hidden="true"></i>
-                    Username
+                    <strong>WELCOME, <span style="text-transform:uppercase;">{{Auth::user()->name}}!!</span></strong>
                 </a>
             </li>
             <li class="sidebar-item">
                 <a href="#" class="sidebar-link collapsed" data-bs-target="#pages" data-bs-toggle="collapse"
-                    aria-expanded="false"><i class="fa fa-gear"></i>
+                    aria-expanded="false"><i class="fa fa-cogs" aria-hidden="true"></i>
+                </i>
                     Settings
                 </a>
                 <ul id="pages" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                     <li class="sidebar-item">
-                        <a href="#" class="sidebar-link">Home Page Settings</a>
+                        <a href="#" class="sidebar-link mx-2"><i class="fa fa-wrench" aria-hidden="true"></i>
+                            Home Page</a>
                     </li>
                     <li class="sidebar-item">
-                        <a href="#" class="sidebar-link">About Page Settings</a>
+                        <a href="#" class="sidebar-link mx-2"><i class="fa fa-wrench" aria-hidden="true"></i>
+                            About Page</a>
                     </li>
                     <li class="sidebar-item">
-                        <a href="#" class="sidebar-link">Footer Settings</a>
+                        <a href="#" class="sidebar-link mx-2"><i class="fa fa-wrench" aria-hidden="true"></i>Footer</a>
                     </li>
 
                 </ul>
             </li>
             <li class="sidebar-item">
-                <a href="#" class="sidebar-link">
+                <a href="{{ route('admin.blogs.index')}}" class="sidebar-link">
                     <i class="fa fa-edit"></i>
-                    Posts
+                    Blogs
                 </a>
             </li>
             <li class="sidebar-item">
-                <a href="#" class="sidebar-link">
+                <a href="{{ route('admin.products.index')}}" class="sidebar-link">
                     <i class="fa fa-th-large" aria-hidden="true"></i>
 
                     Products
@@ -50,7 +53,7 @@
                 </a>
             </li>
             <li class="sidebar-item">
-                <a href="#" class="sidebar-link">
+                <a href="{{ route('logout') }}" class="sidebar-link">
                     <i class="fa fa-sign-out" aria-hidden="true"></i>
                     Log Out
                 </a>

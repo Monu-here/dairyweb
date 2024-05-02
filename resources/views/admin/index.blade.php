@@ -27,7 +27,7 @@
             <main class="content px-3 py-2">
                 <p aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="/admin">Admin</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('admin.index')}}">Admin</a></li>
                         @yield('jumbo')
                     </ol>
                 </p>

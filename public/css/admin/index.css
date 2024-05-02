@@ -151,17 +151,73 @@ a.sidebar-link {
     background-color: white;
     color:black;
 }
-.save{
+
+.btn-primary{
     background-color:#005eff;
     color: white;
 }
-.save:hover{
+
+.btn-primary:hover{
     background-color:#004bcd;
     color: white;
 }
+
+.btn-success{
+    background-color:#008440;
+    color: white;
+}
+
+.btn-success:hover{
+    background-color:#1e8725;
+    color: white;
+}
+
+.btn-danger{
+    background-color:#e63a3a;
+    color: white;
+}
+
+.btn-danger:hover{
+    background-color:#ff1e3c;
+    color: white;
+}
+
 th, td{
     color:#000000;
 }
+
+.alert-danger{
+    background-color:#e63a3a;
+    color: white;
+}
+.alert-success{
+    color:white;
+    background-color: green;
+}
+.card{
+    background-color: #103371;
+    color:white;
+    align-items: center;
+
+}
+.card-image {
+    height: 200px; /* Fixed height */
+    width: 200px; /* Fixed width */
+    overflow: hidden;
+    padding: 5px; /* Hide overflow if image exceeds dimensions */
+}
+
+.card-img img {
+    height: 100%;
+    width: auto;
+    object-fit: cover;
+}
+.list-group-item{
+    background-color: #103371;
+    color:white;
+}
+
+
 
 @media (min-width:768px) {
     .content {

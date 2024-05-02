@@ -1,0 +1,121 @@
+Header
+Landing Page
+    -
+Footer
+About Us
+Products
+Blogs
+Contact
+
+
+Database
+    Testimonials_table
+        -client_img
+        -client_name
+        -client_address
+        -content
+    Products-table
+        -product_image
+        -product_name
+        -description
+        -price
+
+    Blogs-table
+        -image
+        -title
+        -content
+        -username
+        -post_date
+
+    Contact-table
+        -sender_name
+        -sender_email
+        -message_content
+
+    Programs-table
+        -program_img
+        -program_title
+        -program_description
+
+    Subscribers
+        -email
+
+
+    Settings-table
+        -About Us Page
+            Section-1
+                -first_image
+                -heading
+                -paragraph
+            Section-2
+                -second_image
+                -heading
+                -paragraph
+                -Lists
+                    -paragraph
+
+
+        -Landing Page
+            Section-1
+                banner_image
+                heading1
+                heading2
+                paragraph
+                button-text
+
+            Section-2
+                welcome_heading
+                paragraph
+                welcome_image
+
+            About-us Section
+                about-first_image
+                about-second_image
+                customer_number
+                about_heading
+                about_paragraph
+                vision Lists
+                mission Lists
+                Experience_title
+                Experience_description
+
+            Products
+            - from products table
+
+            Services
+                service_image_1
+                service-title_1
+                service-Lists
+                service-image_2
+                service-title_2
+                stat-text
+                stat-value
+
+            Advantages
+                -image
+                -heading
+                -paragraph
+
+            Testimonials
+                -from Testimonials_table
+
+            Programs
+                -from Program_table
+
+            Special Information
+                -from Blogs table
+
+            Newsletter
+               -form to save email address in database
+
+            Contact
+               -contact_heading
+               -contact_paragraph
+               -location(google maps)
+
+        -Footer
+            address
+            gmail
+            phone
+            social media urls
+
