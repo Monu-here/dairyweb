@@ -34,22 +34,22 @@
             @csrf
             @method('PUT')
             <div class="row mb-3">
-                <div class="col-md-8">
+                <div class="col-md-12">
                     <label for="title" class="form-label">Blog Title</label>
                     <input type="text" class="form-control" id="title" name="title"
                         value="{{ $blog->title }}">
                 </div>
-                <div class="col-md-4">
-                    <label for="image" class="form-label">Image</label>
-                    <input type="file" class="form-control image-upload" id="image" name="image"
-                        accept="image/*">
-                   {{$blog->image}}
-                </div>
+
             </div>
             <div class="row mb-3">
-                <div class="col-md-12">
+                <div class="col-md-8">
                     <label for="content" class="form-label">Content</label>
-                    <textarea class="form-control" id="content" name="content" rows="5">{{ $blog->content }}</textarea>
+                    <textarea class="form-control" id="summernote" name="content" rows="5">{{ $blog->content }}</textarea>
+                </div>
+                <div class="col-md-4">
+                    <label for="image" class="form-label">Image</label>
+                    <input type="file" class="form-control image-upload dropify" id="image" name="image"
+                        accept="image/*" data-default-file="{{ asset('blog_images/' . $blog->image) }}">
                 </div>
             </div>
             <!-- Social Media Links -->
@@ -82,30 +82,10 @@
                     </div>
                 </div>
             </div>
-            <button type="submit" class="btn btn-success">Update</button>
+            <button type="submit" class="btn btn-success float-end">Update</button>
         </form>
     </div>
 </div>
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        var closeButtons = document.querySelectorAll('.btn-close');
-        closeButtons.forEach(function (button) {
-            button.addEventListener('click', function () {
-                var alert = button.closest('.alert');
-                alert.style.display = 'none';
-            });
-        });
 
-        var alerts = document.querySelectorAll('.alert');
-        alerts.forEach(function (alert) {
-            setTimeout(function () {
-                alert.style.display = 'none';
-            }, 2000);
-        });
-    });
-    function confirmDelete() {
-        return confirm('Are you sure you want to delete this product?');
-    }
-</script>
 
 @endsection

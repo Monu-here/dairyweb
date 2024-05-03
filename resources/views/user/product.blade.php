@@ -23,7 +23,7 @@
               <img src="{{ asset('product_images/' . $product->image) }}" />
             </figure>
             <h1>{{ $product->name }}</h1>
-            <p>{{ $product->description }}</p>
+            <p>{!! $product->description !!}</p>
             <div class="actions">
               <span>Rs.{{ $product->price }}</span>
               <div class="buttons">

@@ -42,11 +42,11 @@
                             <div class="form-group">
                                 <label for="email">Email</label>
                                 <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp"
-                                    placeholder="Enter email">
+                                    placeholder="Enter email" value="rabin@admin.com">
                             </div>
                             <div class="form-group">
                                 <label for="password">Password</label>
-                                <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+                                <input type="password" class="form-control" name="password" id="password" placeholder="Password" value="admin">
                             </div>
 
 

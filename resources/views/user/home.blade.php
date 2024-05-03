@@ -243,57 +243,22 @@
           <div class="splide">
             <div class="splide__track">
               <ul class="splide__list">
+                @foreach($testimonial->take(3) as $testimonial)
                 <li class="splide__slide">
                   <div class="testimony">
                     <figure>
-                      <img src="./public/user.png" alt="" />
+                        <img src="{{ asset('testimonial_images/' . $testimonial->image) }}" alt="{{ $testimonial->name }}" />
                     </figure>
-                    <h4>Sujan Rai</h4>
-                    <span>Happy Client</span>
+                    <h4>{!!$testimonial->name!!}</h4>
+                    <span>{!!$testimonial->address!!}</span>
                     <p>
-                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                      Quae tempora doloribus iste inventore, deserunt reiciendis
-                      nostrum facere nobis at exercitationem rem ad autem
-                      accusantium quidem ut quis. Ut, repudiandae reiciendis.
+                        {!!$testimonial->content!!}
                     </p>
                     <div class="pattern"></div>
                     <img src="./public/quote.svg" alt="" class="quote" />
                   </div>
                 </li>
-                <li class="splide__slide">
-                  <div class="testimony">
-                    <figure>
-                      <img src="./public/user.png" alt="" />
-                    </figure>
-                    <h4>Sujan Rai</h4>
-                    <span>Happy Client</span>
-                    <p>
-                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                      Quae tempora doloribus iste inventore, deserunt reiciendis
-                      nostrum facere nobis at exercitationem rem ad autem
-                      accusantium quidem ut quis. Ut, repudiandae reiciendis.
-                    </p>
-                    <div class="pattern"></div>
-                    <img src="./public/quote.svg" alt="" class="quote" />
-                  </div>
-                </li>
-                <li class="splide__slide">
-                  <div class="testimony">
-                    <figure>
-                      <img src="./public/user.png" alt="" />
-                    </figure>
-                    <h4>Sujan Rai</h4>
-                    <span>Happy Client</span>
-                    <p>
-                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                      Quae tempora doloribus iste inventore, deserunt reiciendis
-                      nostrum facere nobis at exercitationem rem ad autem
-                      accusantium quidem ut quis. Ut, repudiandae reiciendis.
-                    </p>
-                    <div class="pattern"></div>
-                    <img src="./public/quote.svg" alt="" class="quote" />
-                  </div>
-                </li>
+                @endforeach
               </ul>
             </div>
           </div>

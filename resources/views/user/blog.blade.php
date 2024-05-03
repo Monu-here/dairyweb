@@ -41,9 +41,9 @@
                 </span>
               </div>
               <p>
-                {{ $blog->content}}
+                {!! $blog->content!!}
               </p>
-              <a href="#"
+              <a href="{{ route('blog.show', ['blog' => $blog->id]) }}"
                 >Read More <img src="./arrow copy.svg" alt=""
               /></a>
             </div>

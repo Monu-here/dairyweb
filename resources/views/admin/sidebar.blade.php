@@ -28,7 +28,10 @@
                             About Page</a>
                     </li>
                     <li class="sidebar-item">
-                        <a href="#" class="sidebar-link mx-2"><i class="fa fa-wrench" aria-hidden="true"></i>Footer</a>
+                        <a href="{{ route('admin.settings.contactpage')}}" class="sidebar-link mx-2"><i class="fa fa-wrench" aria-hidden="true"></i>Contact</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="" class="sidebar-link mx-2"><i class="fa fa-wrench" aria-hidden="true"></i>Footer</a>
                     </li>
 
                 </ul>
@@ -47,9 +50,15 @@
                 </a>
             </li>
             <li class="sidebar-item">
-                <a href="#" class="sidebar-link">
+                <a href="{{ route('admin.messages.index')}}" class="sidebar-link">
                     <i class="fa fa-comments" aria-hidden="true"></i>
                     Messages
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="{{ route('admin.testimonials.index')}}" class="sidebar-link">
+                    <i class="fa fa-list" aria-hidden="true"></i>
+                    Testimonials
                 </a>
             </li>
             <li class="sidebar-item">

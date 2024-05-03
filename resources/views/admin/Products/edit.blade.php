@@ -19,7 +19,7 @@
                         </div>
                         <div class="card-body">
                             <h5 class="card-title">{{ $product->name }}</h5>
-                            <p class="card-text">{{ $product->description }}</p>
+                            <p class="card-text">{!! $product->description !!}</p>
                             <p class="card-text"><strong>Price:</strong> Rs.{{ $product->price }}</p>
                         </div>
                     </div>
@@ -60,27 +60,29 @@
                                 <input type="number" class="form-control" id="price" name="price" step="0.01"
                                     value="{{ $product->price }}">
                             </div>
-                            <div class="col-md-12">
-                                <label for="description" class="form-label">Description</label>
-                                <textarea class="form-control" id="description" name="description"
-                                    rows="3">{{ $product->description }}</textarea>
-                            </div>
+
                         </div>
                         <!-- Second Row: Product Price, Image, and Save Button -->
                         <div class="row mb-3">
+                            <div class="col-md-8">
+                                <label for="description" class="form-label">Description</label>
+                                <textarea class="form-control" id="summernote" name="description"
+                                    rows="3">{!! $product->description !!}</textarea>
+                            </div>
 
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <label for="image" class="form-label">Product Image</label>
-                                <input type="file" class="form-control image-upload" id="image" name="image"
-                                    accept="image/*"> {{ $product->image }}
+                                <input type="file" class="form-control image-upload dropify" id="image" name="image" data-default-file="{{ asset('product_images/' . $product->image) }}"
+                                    accept="image/*">
                             </div>
-                            <div class="col-md-6 mt-4">
-                                <button type="submit" class="btn btn-success form-control mt-1 w-50">Update</button>
-                            </div>
+
                         </div>
+
                         <div class="row mb-3">
 
                         </div>
+                        <button type="submit" class="btn btn-success mt-1 float-end">Update</button>
+
                     </form>
                 </div>
             </div>

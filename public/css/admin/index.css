@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+@import url('https://cdn.datatables.net/2.0.5/css/dataTables.dataTables.css');
+
 
 *,
 ::after,
@@ -216,6 +218,13 @@ th, td{
     background-color: #103371;
     color:white;
 }
+.msg-table-head{
+    background-color: #103371;
+}
+.msg-table-head th{
+    color:white;
+}
+
 
 
 
