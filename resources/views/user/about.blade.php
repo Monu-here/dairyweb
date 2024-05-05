@@ -3,6 +3,7 @@
 @section('content')
 <div class="main">
     @php
+        $data=App\Helper::getAboutPageSetting();
 
     @endphp
 
@@ -19,16 +20,13 @@
     <!--About us-->
     <section class="about-section container">
       <figure class="about-image">
-        <img src="/public/about.jpg" alt="about" />
-      </figure>
+        <img src="{{ Storage::url($data->image1) }}" alt="about" />
+    </figure>
       <div class="about-us-section-details">
         <h3>About Us</h3>
-        <h1>Providing the Best Quality Products to You Everyday</h1>
+        <h1>{!!$data->heading1!!}</h1>
         <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis
-          ab reiciendis, dolor odit excepturi, repellendus dolore minus ipsa
-          nulla consequuntur ducimus modi enim ex repudiandae cumque numquam
-          suscipit, fuga unde.
+            {!!$data->paragraph1!!}
         </p>
       </div>
     </section>
@@ -37,38 +35,24 @@
     <!--Why Choose Us-->
     <section class="why-choose-us container">
       <figure class="why-choose-us-image">
-        <img src="./public/why-choose-us.jpg" alt="" />
+        <img src="{{ Storage::url($data->image2) }}" alt="about" />
       </figure>
       <div class="why-choose-us-advantages">
         <span>Why Choose Us</span>
-        <h1>Unleash the Magic of Farm Crafted Dairy</h1>
+        <h1>{!!$data->heading2!!}</h1>
         <p>
-          Indulge in the unparalleled freshness and exceptional quality of our
-          dairy products, where every sip and bite reflects our commitment to
-          providing a wholesome and delightful experience for our valued
-          customers.
+            {!!$data->paragraph2!!}
         </p>
+        @foreach($data->reasons as $index => $reason)
         <div class="advantage-item">
-          <img src="./public/check-square-2.svg" alt="" />
+          <img src="/check-square-2.svg" alt="" />
           <div class="item">
-            <h2>100% Natural</h2>
-            <p>Products are 100% naturally crafted.</p>
+            <h2>{!!$index!!}</h2>
+            <p>{!!$reason!!}</p>
           </div>
         </div>
-        <div class="advantage-item">
-          <img src="./public/check-square-2.svg" alt="" />
-          <div class="item">
-            <h2>Best Quality Products</h2>
-            <p>Get quality like none others.</p>
-          </div>
-        </div>
-        <div class="advantage-item">
-          <img src="./public/check-square-2.svg" alt="" />
-          <div class="item">
-            <h2>Expert Workers</h2>
-            <p>Products made by experienced industry workers and experts.</p>
-          </div>
-        </div>
+        @endforeach
+
       </div>
     </section>
     <!--Why Choose Us End-->

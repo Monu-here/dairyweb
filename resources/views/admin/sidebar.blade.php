@@ -24,7 +24,7 @@
                             Home Page</a>
                     </li>
                     <li class="sidebar-item">
-                        <a href="#" class="sidebar-link mx-2"><i class="fa fa-wrench" aria-hidden="true"></i>
+                        <a href="{{ route('admin.settings.aboutpage')}}" class="sidebar-link mx-2"><i class="fa fa-wrench" aria-hidden="true"></i>
                             About Page</a>
                     </li>
                     <li class="sidebar-item">
