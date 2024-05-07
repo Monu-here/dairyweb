@@ -3,21 +3,19 @@
 @section('content')
 <div class="main">
     @php
-
+        $data=App\Helper::getHomePageSetting();
     @endphp
 
         <main class="main">
       <!--hero-->
-      <section class="hero" id="hero">
+      <section class="hero" id="hero" style="background-image: url('{{ Storage::url($data->image1) }}');">
         <span class="hero-section">Join the Dairy Journey</span>
-        <h1 class="hero-title">Pure Goodness From Our Dairy To Your Table.</h1>
+        <h1 class="hero-title">{!!$data->heading1!!}</h1>
         <p class="hero-desc">
-          Experience pure dairy joy at [Dairy Name]. From farm to table, savor
-          the freshest delights in every sip and bite. Join us for a journey of
-          unrivaled flavor and quality.
+            {!!$data->paragraph1!!}
         </p>
         <button class="discover-btn">
-          Discover More <img src="/arrow.svg" alt="" />
+            {!!$data->buttontext1!!} <img src="/arrow.svg" alt="" />
         </button>
         <img src="/splash.png" alt="" class="splash" />
       </section>
@@ -28,60 +26,56 @@
         <div class="welcome">
           <div class="top">
             <span class="welcome-section">Farm Perfect Dairy</span>
-            <h1 class="welcome-title">Welcome to our Dairy</h1>
+            <h1 class="welcome-title">{!!$data->heading2!!}</h1>
             <p class="welcome-desc">
-              We take pride in delivering the freshest and finest dairy products
-              straight to your table. From creamy milk to delectable cheeses,
-              each product is crafted with care and passion.
+                {!!$data->paragraph2!!}
             </p>
             <a href="#" class="welcome-anchor"
-              >Know Us More <img src="/arrow copy.svg" alt=""
+              > {!!$data->linktext1!!} <img src="/arrow copy.svg" alt=""
             /></a>
           </div>
           <figure class="buttom">
-            <img src="/dairy.jpg" alt="" class="welcome-image" />
+            <img src="{{ Storage::url($data->welcomeimage) }}" alt="" class="welcome-image" />
           </figure>
         </div>
 
         <!--About-->
         <div class="about" id="about">
           <div class="left">
-            <img src="./public/about-1.jpg" alt="" class="image" />
+            <img src="{{ Storage::url($data->aboutimage1) }}" alt="" class="image" />
             <div class="left-badge">
-              <h3>Trusted by <span>1000+</span> Customers</h3>
+              <h3>Trusted by <span>{!!$data->trustednos!!}+</span> Customers</h3>
             </div>
           </div>
           <figure class="center">
-            <img src="./public/about-2.jpg" alt="" class="image" />
+            <img src="{{ Storage::url($data->aboutimage2) }}" alt="" class="image" />
           </figure>
           <div class="right">
             <span>About Us</span>
-            <h1>Where Milk Flows</h1>
+            <h1>{!!$data->heading3!!}</h1>
             <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit,
-              vitae! Laborum sequi delectus nihil veniam! Odio quaerat autem,
-              adipisci maxime sapiente aut possimus nihil ex nulla inventore!
-              Tempora, temporibus quas.
+                {!!$data->paragraph3!!}
             </p>
             <div class="vision-mission">
               <div class="vision">
                 <h5>Our Vision</h5>
                 <ul class="vision-list">
-                  <li><img src="./public/check.svg" alt="" />Vision 1</li>
-                  <li><img src="./public/check.svg" alt="" />Vision 2</li>
-                  <li><img src="./public/check.svg" alt="" />Vision 3</li>
+                    @foreach ($data->visions as $vision)
+
+                    <li><img src="/check.svg" alt="" />{!!$vision!!}</li>
+                    @endforeach
                 </ul>
               </div>
               <div class="mission">
                 <h5>Our Mission</h5>
                 <ul class="mission-list">
-                  <li><img src="./public/check.svg" alt="" />Mission 1</li>
-                  <li><img src="./public/check.svg" alt="" />Mission 2</li>
-                  <li><img src="./public/check.svg" alt="" />Mission 3</li>
+                    @foreach ($data->missions as $mission)
+                    <li><img src="/check.svg" alt="" />{!!$mission!!}</li>
+                    @endforeach
                 </ul>
               </div>
             </div>
-            <a href="/src/pages/about/about.html">
+            <a href="{{ route('user.about')}}">
               <button>More <img src="./public/arrow.svg" alt="" /></button>
             </a>
           </div>
@@ -89,33 +83,18 @@
 
         <!--Experience-->
         <div class="experience-card container">
+            @foreach($data->features as $index => $feature)
+
           <div class="experience">
             <figure class="experience-logo">
-              <img src="./public/time.svg" alt="" />
+              <img src="./thumbsup.svg" alt="" />
             </figure>
             <div class="experience-details">
-              <h3>20 Years of Experience</h3>
-              <p>Serving quality dairy products.</p>
+              <h3>{!!$index!!}</h3>
+              <p>{!!$feature!!}</p>
             </div>
           </div>
-          <div class="experience">
-            <figure class="experience-logo">
-              <img src="./public/workers.svg" alt="" />
-            </figure>
-            <div class="experience-details">
-              <h3>Experienced Workers</h3>
-              <p>Serving quality dairy products.</p>
-            </div>
-          </div>
-          <div class="experience">
-            <figure class="experience-logo">
-              <img src="./public/thumbsup.svg" alt="" />
-            </figure>
-            <div class="experience-details">
-              <h3>Quality Assured</h3>
-              <p>Serving quality dairy products.</p>
-            </div>
-          </div>
+          @endforeach
         </div>
       </section>
       <!--About Us End-->
@@ -129,10 +108,10 @@
                 <figure class="product-image">
                   <img src="{{ asset('product_images/' . $product->image) }}" />
                 </figure>
-                <h1>{{ $product->name }}</h1>
-                <p>{{ $product->description }}</p>
+                <h1>{!! $product->name !!}</h1>
+                <p>{!! $product->description !!}</p>
                 <div class="actions">
-                  <span>Rs.{{ $product->price }}</span>
+                  <span>Rs.{!! $product->price !!}</span>
                   <div class="buttons">
                     <button class="product-button">
                       <img
@@ -166,43 +145,34 @@
       <!--Dairy Services-->
       <section class="services container">
         <figure class="service-left">
-          <img src="./public/service-1.jpg" alt="" />
+          <img src="{{ Storage::url($data->serviceimage1) }}" alt="" />
         </figure>
         <div class="service-center">
           <span>Dairy Services</span>
-          <h1 class="service-title">The Eco-Friendly Services on Our Dairy</h1>
+          <h1 class="service-title">{!! $data->serviceheading1 !!}</h1>
           <ul class="service-list">
+            @foreach ($data->services as $service)
+
             <li>
-              <img src="./public/check.svg" alt="" />
-              Energy-Efficient Equipment
+              <img src="./check.svg" alt="" />
+              {!!$service!!}
             </li>
-            <li>
-              <img src="./public/check.svg" alt="" />
-              Waste Management
-            </li>
-            <li>
-              <img src="./public/check.svg" alt="" />
-              Efficient Water Management
-            </li>
-            <li>
-              <img src="./public/check.svg" alt="" />
-              Efficient Transportation
-            </li>
+            @endforeach
           </ul>
-          <button>Read More <img src="./public/arrow.svg" alt="" /></button>
+          <a href="{!! $data->servicelink !!}"><button>Read More <img src="./arrow.svg" alt="" /></button></a>
         </div>
         <div class="service-right">
           <figure>
-            <img src="./public/service-2.jpg" alt="" />
+            <img src="{{ Storage::url($data->serviceimage2) }}" alt="" />
           </figure>
-          <h3>Product Care</h3>
+          <h3>{!! $data->serviceheading2 !!}</h3>
           <div class="stats">
             <div class="stats-left">
-              <span class="stat-value">20+</span>
+              <span class="stat-value">{!! $data->productnos !!}+</span>
               <span class="stat-text">Products</span>
             </div>
             <div class="stats-right">
-              <span class="stat-value">99%</span>
+              <span class="stat-value">{!! $data->satisfaction !!}%</span>
               <span class="stat-text">Satisfaction</span>
             </div>
           </div>

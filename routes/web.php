@@ -24,7 +24,7 @@ Route::get('/', function () {
 
 Route::get('/about', function () {
     return view('user.about');
-});
+})->name('user.about');
 Route::get('/products', function () {
     $products = Product::all();
 
@@ -82,7 +82,8 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
 
     Route::prefix('settings')->name('settings.')->group(function(){
         Route::get('', [SettingController::class, 'index'])->name('index');
-        Route::match(['GET', 'POST'],'/homepage', [SettingController::class, 'homepage'])->name('homepage');
+        Route::match(['GET', 'POST'],'/homepage', [SettingController::class, 'homePage'])->name('homepage');
+
         Route::match(['GET', 'POST'],'/contactpage', [SettingController::class, 'contactpage'])->name('contactpage');
         Route::match(['GET', 'POST'],'/aboutpage', [SettingController::class, 'aboutpage'])->name('aboutpage');
 

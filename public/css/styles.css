@@ -461,7 +461,6 @@ template {
   text-align: center;
   padding: 50px;
   gap: 20px;
-  background-image: url("/banner.jpg");
   background-repeat: no-repeat;
   height: calc(100vh - 100px);
   background-position: center;
