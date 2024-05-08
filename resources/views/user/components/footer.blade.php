@@ -1,43 +1,61 @@
 <footer class="footer-container" id="footer">
+    <style>
+        a{
+            color:white;
+        }
+    </style>
+    @php
+        $data=App\Helper::getFooterPageSetting();
+    @endphp
     <div class="footer container">
       <div class="contact">
         <h3>Contact</h3>
         <ul>
-          <li><img src="./map-pin.svg" alt="" /> Kathmandu, Nepal</li>
+          <li><img src="./map-pin.svg" alt="" /> {!!$data->address!!}</li>
           <li>
-            <img src="/mail.svg" alt="" /> somerandommail@gmail.com
+            <img src="/mail.svg" alt="" /> <a href="mailto:{!!$data->email!!}">{!!$data->email!!}</a>
+
           </li>
-          <li><img src="./phone.svg" alt="" /> +977 9812345678</li>
+          <li><img src="./phone.svg" alt="" /><a  href="tel:{!!$data->phone!!}">{!!$data->phone!!}</a>
+            </li>
         </ul>
         <div class="icons">
-          <figure>
-            <img src="./facebook.svg" alt="" />
-          </figure>
-          <figure>
-            <img src="./insta.svg" alt="" />
-          </figure>
-          <figure>
-            <img src="./twitter.svg" alt="" />
-          </figure>
+            <a href="{!!$data->facebookurl!!}">
+                <figure>
+                    <img src="./facebook.svg" alt="" />
+                </figure>
+             </a>
+             <a href="{!!$data->instaurl!!}">
+                <figure>
+                    <img src="./insta.svg" alt="" />
+                </figure>
+            </a>
+
+            <a href="{!!$data->twitterurl!!}">
+                <figure>
+                    <img src="./twitter.svg" alt="" />
+                </figure>
+            </a>
         </div>
       </div>
       <div class="links">
         <div class="explore">
           <h3>Explore</h3>
           <ul>
-            <li>About Us</li>
-            <li>Products</li>
-            <li>News & Articles</li>
-            <li>Contact Us</li>
+            <li><a href="{{ url('/about') }}">About Us</a></li>
+            <li><a href="{{ url('/products') }}">Products</a></li>
+            <li><a href="{{ url('/blogs') }}">News & Articles</a></li>
+            <li><a href="{{ url('/contact') }}">Contact Us</a></li>
           </ul>
         </div>
         <div class="quick-links">
           <h3>Quick Links</h3>
           <ul>
-            <li>Privacy Policy</li>
-            <li>Terms & Conditions</li>
-            <li>Disclaimer</li>
-            <li>Support</li>
+            <li><a href="{!!$data->privacy!!}">Privacy Policy</a></li>
+            <li><a href="{!!$data->terms!!}">Terms & Conditions</a></li>
+            <li><a href="{!!$data->disclaimer!!}">Disclaimer</a></li>
+            <li><a href="{!!$data->support!!}">Support</a></li>
+
           </ul>
         </div>
       </div>

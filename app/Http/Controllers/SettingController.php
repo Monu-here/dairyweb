@@ -58,12 +58,32 @@ class SettingController extends Controller
             $test_description=$request->testdescription??'';
 
 
+            $program_heading = $request->programheading ?? '';
+            $program_paragraph = $request->proogrampara ?? '';
+            $program_button_text = $request->programbtntext ?? '';
+            $program_button_link = $request->programbtnlink ?? '';
+            $program_title1=$request->programtitle1??'';
+            $program_description1=$request->programdescription1??'';
+
+            $program_title2=$request->programtitle2??'';
+            $program_description2=$request->programdescription2??'';
+
+            $program_title3=$request->programtitle3??'';
+            $program_description3=$request->programdescription3??'';
 
 
 
 
-
-
+            Helper::setSetting('program_heading', $program_heading);
+            Helper::setSetting('program_paragraph', $program_paragraph);
+            Helper::setSetting('program_button_text', $program_button_text);
+            Helper::setSetting('program_button_link', $program_button_link);
+            Helper::setSetting('program_title1', $program_title1);
+            Helper::setSetting('program_description1', $program_description1);
+            Helper::setSetting('program_title2', $program_title2);
+            Helper::setSetting('program_description2', $program_description2);
+            Helper::setSetting('program_title3', $program_title3);
+            Helper::setSetting('program_description3', $program_description3);
 
 
 
@@ -94,10 +114,7 @@ class SettingController extends Controller
             Helper::setSetting('test_heading',$test_heading);
             Helper::setSetting('test_description',$test_description);
 
-            if ($request->hasFile('advimage')) {
-                $imagePath = $request->file('advimage')->storeAs('public/home_images', $request->file('advimage')->getClientOriginalName());
-                Helper::setSetting('adv_image', $imagePath);
-            }
+
 
 
 
@@ -125,6 +142,26 @@ class SettingController extends Controller
             if ($request->hasFile('serviceimage2')) {
                 $imagePath = $request->file('serviceimage2')->storeAs('public/home_images', $request->file('serviceimage2')->getClientOriginalName());
                 Helper::setSetting('service_image2', $imagePath);
+            }
+            if ($request->hasFile('advimage')) {
+                $imagePath = $request->file('advimage')->storeAs('public/home_images', $request->file('advimage')->getClientOriginalName());
+                Helper::setSetting('adv_image', $imagePath);
+            }
+            if ($request->hasFile('programimage1')) {
+                $imagePath = $request->file('programimage1')->storeAs('public/home_images', $request->file('programimage1')->getClientOriginalName());
+                Helper::setSetting('program_image1', $imagePath);
+            }
+            if ($request->hasFile('programimage2')) {
+                $imagePath = $request->file('programimage2')->storeAs('public/home_images', $request->file('programimage2')->getClientOriginalName());
+                Helper::setSetting('program_image2', $imagePath);
+            }
+            if ($request->hasFile('programimage3')) {
+                $imagePath = $request->file('programimage3')->storeAs('public/home_images', $request->file('programimage3')->getClientOriginalName());
+                Helper::setSetting('program_image3', $imagePath);
+            }
+            if ($request->hasFile('newsletterimage')) {
+                $imagePath = $request->file('newsletterimage')->storeAs('public/home_images', $request->file('newsletterimage')->getClientOriginalName());
+                Helper::setSetting('newsletter_image', $imagePath);
             }
 
             $data = Helper::getHomepageSetting();
@@ -205,6 +242,43 @@ class SettingController extends Controller
 
             return redirect()->back()->with('success', 'Page Updated successfully.');
 
+        }
+    }
+    public function footerPage(Request $request)
+    {
+        if ($request->isMethod('GET')) {
+           $data = Helper::getFooterPageSetting();
+            return view('admin.settings.footer',compact('data'));
+        } else {
+            $footer_address = $request->address ?? '';
+            $footer_email = $request->email ?? '';
+            $footer_phone = $request->phone ?? '';
+            $footer_instalink = $request->instaurl ?? '';
+            $footer_fblink = $request->facebookurl ?? '';
+            $footer_twtlink = $request->twitterurl ?? '';
+            $footer_privacy = $request->privacy ?? '';
+            $footer_terms = $request->terms ?? '';
+            $footer_disclaimer = $request->disclaimer ?? '';
+            $footer_support = $request->support ?? '';
+
+
+            Helper::setSetting('footer_address', $footer_address);
+            Helper::setSetting('email_address', $footer_email);
+            Helper::setSetting('phone_no', $footer_phone);
+            Helper::setSetting('insta_url', $footer_instalink);
+            Helper::setSetting('fb_url', $footer_fblink);
+            Helper::setSetting('twt_url', $footer_twtlink);
+            Helper::setSetting('privacy', $footer_privacy);
+            Helper::setSetting('terms', $footer_terms);
+            Helper::setSetting('disclaimer', $footer_disclaimer);
+            Helper::setSetting('support', $footer_support);
+
+
+
+
+            $data = Helper::getFooterPageSetting();
+
+            return redirect()->back()->with('success', 'Page Updated successfully.');
         }
     }
 }

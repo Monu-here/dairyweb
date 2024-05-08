@@ -333,7 +333,7 @@
 
         </div>
 
-        <div class="fifth-section">
+        <div class="sixth-section">
             <hr>
             <h4 style="text-decoration:underline;">Testimonials Section:</h4>
             <div class="row">
@@ -360,8 +360,99 @@
 
         </div>
 
+        <div class="seventh-section">
+            <hr>
+            <h4 style="text-decoration:underline;">Programs Section:</h4>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="programheading">Programs Heading:</label>
+                        <input class="form-control" type="text" name="programheading" id="programheading" value="{!! $data->programheading !!}">
+                    </div>
+                    <div class="form-group">
+                        <label for="programpara">Programs Paragraph:</label>
+                        <textarea class="form-control" rows="3" name="proogrampara" id="programpara"value="">{!! $data->programpara !!}</textarea>
+                    </div>
 
-        <button type="submit" class="btn btn-success float-end">Save</button>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="programbtext">Button Text</label>
+                        <input class="form-control" type="text" name="programbtntext" id="programbtntext" value="{!! $data->programbtntext !!}">
+                    </div>
+                    <div class="form-group">
+                        <label for="programbtext">Button URL</label>
+                        <input class="form-control" type="text" name="programbtnlink" id="programbtnlink" value="{!! $data->programbtnlink !!}">
+                    </div>
+
+                </div>
+                <div class="col-md-12">
+                    <div class="program-cards mt-2">
+                        <h6 style="text-decoration: underline">Dairy Programs</h6>
+                        <div class="row">
+                         <div class="col-md-4">
+                            <label for="programtitle">Program 1:</label>
+
+                            <input type="file" class="form-control image-upload dropify" id="programimage"
+                            name="programimage1" data-default-file="{{ Storage::url($data->programimage1) }}" accept="image/*">
+
+                            <div class="form-group">
+                                <label for="programtitle">Program Title:</label>
+                                <input class="form-control" type="text" name="programtitle1" id="programtitle1" value="{!! $data->programtitle1 !!}">
+                            </div>
+                            <div class="form-group">
+                                <label for="programheading">Program Description:</label>
+                                <textarea class="form-control" rows="2" name="programdescription1" id="programdescription1"value="">{!! $data->programdescription1 !!}</textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="programtitle">Program 2:</label>
+
+                            <input type="file" class="form-control image-upload dropify" id="programimage"
+                            name="programimage2" data-default-file="{{ Storage::url($data->programimage2) }}" accept="image/*">
+                        <div class="form-group">
+                            <label for="programtitle">Program Title:</label>
+                            <input class="form-control" type="text" name="programtitle2" id="programtitle1" value="{!! $data->programtitle2 !!}">
+                        </div>
+                        <div class="form-group">
+                            <label for="programheading">Program Description:</label>
+                            <textarea class="form-control" rows="2" name="programdescription2" id="programdescription2"value="">{!! $data->programdescription2 !!}</textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="programtitle">Program 3:</label>
+
+                        <input type="file" class="form-control image-upload dropify" id="programimage"
+                            name="programimage3" data-default-file="{{ Storage::url($data->programimage3) }}" accept="image/*">
+                    <div class="form-group">
+                        <label for="programtitle">Program Title:</label>
+                        <input class="form-control" type="text" name="programtitle3" id="programtitle1" value="{!! $data->programtitle3 !!}">
+                    </div>
+                    <div class="form-group">
+                        <label for="programheading">Program Description:</label>
+                        <textarea class="form-control" rows="2" name="programdescription3" id="programdescription3"value="">{!! $data->programdescription3 !!}</textarea>
+                    </div>
+                </div>
+
+                    </div>
+                </div>
+
+
+
+            </div>
+
+        </div>
+
+        <div class="newsletter">
+            <hr>
+            <h4 style="text-decoration:underline;">Newsletter Section:</h4>
+            <input type="file" class="form-control image-upload dropify" id="newsletterimage" data-placeholder="Drag and drop a file here or click"
+                                        name="newsletterimage" data-default-file="" accept="image/*">
+        </div>
+
+
+        <button type="submit" class="btn btn-success float-end mt-2">Save</button>
 
 
     </form>

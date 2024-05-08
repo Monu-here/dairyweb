@@ -17,7 +17,7 @@
     <!--Page heading end-->
     <section class="all-products">
       <div class="products-container container">
-        @foreach ($products as $product )
+        @foreach ($products->reverse() as $product )
         <div class="product">
             <figure class="product-image">
               <img src="{{ asset('product_images/' . $product->image) }}" />

@@ -75,6 +75,31 @@ class Helper{
             'testheading'=>self::getSetting('test_heading'),
             'testdescription'=>self::getSetting('test_description'),
 
+            //programs section
+            'programheading' => self::getSetting('program_heading') ?? '',
+            'programpara' => self::getSetting('program_paragraph') ?? '',
+            'programbtntext' => self::getSetting('program_button_text') ?? '',
+            'programbtnlink' => self::getSetting('program_button_link') ?? '',
+
+            'programimage1' => self::getSetting('program_image1') ?? '',
+            'programtitle1' => self::getSetting('program_title1') ?? '',
+            'programdescription1' => self::getSetting('program_description1') ?? '',
+            'programimage2' => self::getSetting('program_image2') ?? '',
+            'programtitle2' => self::getSetting('program_title2') ?? '',
+            'programdescription2' => self::getSetting('program_description2') ?? '',
+            'programimage3' => self::getSetting('program_image3') ?? '',
+            'programtitle3' => self::getSetting('program_title3') ?? '',
+            'programdescription3' => self::getSetting('program_description3') ?? '',
+
+            'newsletterimage' => self::getSetting('newsletter_image') ?? '',
+
+
+
+
+
+
+
+
 
 
         ];
@@ -99,6 +124,23 @@ class Helper{
             'heading' => self::getSetting('contact_heading') ?? '',
             'paragraph' => self::getSetting('contact_paragraph') ?? '',
             'location' => self::getSetting('contact_location') ?? '',
+
+
+        ];
+    }
+    public static function getFooterPageSetting(){
+        return (object)[
+             //footer section
+             'address'=>self::getSetting('footer_address')??'',
+             'email'=>self::getSetting('email_address')??'',
+             'phone'=>self::getSetting('phone_no')??'',
+             'instaurl'=>self::getSetting('insta_url')??'',
+             'facebookurl'=>self::getSetting('fb_url')??'',
+             'twitterurl'=>self::getSetting('twt_url')??'',
+             'privacy'=>self::getSetting('privacy')??'',
+             'terms'=>self::getSetting('terms')??'',
+             'disclaimer'=>self::getSetting('disclaimer')??'',
+             'support'=>self::getSetting('support')??'',
 
 
         ];

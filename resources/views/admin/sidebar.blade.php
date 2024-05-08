@@ -28,10 +28,10 @@
                             About Page</a>
                     </li>
                     <li class="sidebar-item">
-                        <a href="{{ route('admin.settings.contactpage')}}" class="sidebar-link mx-2"><i class="fa fa-wrench" aria-hidden="true"></i>Contact</a>
+                        <a href="{{ route('admin.settings.contactpage')}}" class="sidebar-link mx-2"><i class="fa fa-wrench" aria-hidden="true"></i> Contact</a>
                     </li>
                     <li class="sidebar-item">
-                        <a href="" class="sidebar-link mx-2"><i class="fa fa-wrench" aria-hidden="true"></i>Footer</a>
+                        <a href="{{ route('admin.settings.footerpage')}}" class="sidebar-link mx-2"><i class="fa fa-wrench" aria-hidden="true"></i> Footer</a>
                     </li>
 
                 </ul>

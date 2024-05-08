@@ -103,35 +103,31 @@
         <span>Our all products</span>
         <h1 class="product-heading">View All Product</h1>
         <div class="products-container container">
-            @foreach ($products as $product )
-            <div class="product">
-                <figure class="product-image">
-                  <img src="{{ asset('product_images/' . $product->image) }}" />
-                </figure>
-                <h1>{!! $product->name !!}</h1>
-                <p>{!! $product->description !!}</p>
-                <div class="actions">
-                  <span>Rs.{!! $product->price !!}</span>
-                  <div class="buttons">
-                    <button class="product-button">
-                      <img
-                        src="./heart.svg"
-                        alt=""
-                        class="product-button-image"
-                      />
-                    </button>
-                    <button class="product-button">
-                      <img
-                        src="./cart.svg"
-                        alt=""
-                        class="product-button-image"
-                      />
-                    </button>
-                  </div>
-                </div>
-              </div>
-
+            @php $count = 0; @endphp
+            @foreach ($products as $product)
+                @if ($count < 4)
+                    <div class="product">
+                        <figure class="product-image">
+                            <img src="{{ asset('product_images/' . $product->image) }}" />
+                        </figure>
+                        <h1>{!! $product->name !!}</h1>
+                        <p>{!! $product->description !!}</p>
+                        <div class="actions">
+                            <span>Rs.{!! $product->price !!}</span>
+                            <div class="buttons">
+                                <button class="product-button">
+                                    <img src="./heart.svg" alt="" class="product-button-image" />
+                                </button>
+                                <button class="product-button">
+                                    <img src="./cart.svg" alt="" class="product-button-image" />
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    @php $count++; @endphp
+                @endif
             @endforeach
+
 
         </div>
         <a
