@@ -113,7 +113,7 @@
                         <h1>{!! $product->name !!}</h1>
                         <p>{!! $product->description !!}</p>
                         <div class="actions">
-                            <span>Rs.{!! $product->price !!}</span>
+                            <span>Rs.{{ number_format($product->price, 0) }}</span>
                             <div class="buttons">
                                 <button class="product-button">
                                     <img src="./heart.svg" alt="" class="product-button-image" />
@@ -178,16 +178,13 @@
       <!--Advantages-->
       <section class="advantages container">
         <figure class="advantage-image">
-          <img src="./public/advantages.jpg" alt="" />
+          <img src="{{ Storage::url($data->adv_image) }}" alt="" />
         </figure>
         <div class="our-advantages">
           <span>Our Advantages</span>
-          <h1>Exceptional Freshness, Quality, & Sustainability</h1>
+          <h1>{!!$data->advheading!!}</h1>
           <p>
-            Indulge in the unparalleled freshness and exceptional quality of our
-            dairy products, where every sip and bite reflects our commitment to
-            providing a wholesome and delightful experience for our valued
-            customers.
+            {!!$data->advparagraph!!}
           </p>
         </div>
       </section>
@@ -197,12 +194,9 @@
         <div class="container testimonial-container">
           <div class="testimonial-details">
             <span>Testimonials</span>
-            <h1>We Are Trusted By 2500+ Clients</h1>
+            <h1>{!!$data->testheading!!}</h1>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut libero
-              facere iure veritatis natus magnam? Dolore, officiis! Soluta
-              sapiente temporibus ab delectus aliquid? Iure voluptate, qui
-              distinctio optio neque numquam.
+                {!!$data->testdescription!!}
             </p>
           </div>
 
@@ -221,7 +215,7 @@
                         {!!$testimonial->content!!}
                     </p>
                     <div class="pattern"></div>
-                    <img src="./public/quote.svg" alt="" class="quote" />
+                    <img src="./quote.svg" alt="" class="quote" />
                   </div>
                 </li>
                 @endforeach
@@ -235,49 +229,45 @@
       <section class="programs-container container">
         <div class="program-details">
           <span>Our Programs</span>
-          <h1>Our Dairy Programs</h1>
+          <h1>{!!$data->programheading!!}</h1>
           <p>
-            Our dairy programs encompass various initiatives and strategies
-            aimed at optimizing different aspects of dairy farming and
-            production.
+            {!!$data->programpara!!}
           </p>
-          <button>Read More <img src="./public/arrow.svg" alt="" /></button>
+          <button><a href="{!!$data->programbtnlink!!}">{!!$data->programbtntext!!} <img src="./public/arrow.svg" alt="" /></a></button>
         </div>
         <div class="programs">
           <div class="program">
             <figure>
-              <img src="./public/quality.png" alt="" />
+              <img src="{{ Storage::url($data->programimage1) }}" alt="{!!$data->programtitle1!!}" />
             </figure>
             <div class="details">
-              <h3>Quality Assurance</h3>
+              <h3>{!!$data->programtitle1!!}</h3>
               <p>
-                Ensures the consistent quality and safety of dairy products
-                through rigorous testing, monitoring, and adherence to industry
-                standards.
+                {!!$data->programdescription1!!}
               </p>
             </div>
           </div>
           <div class="program">
             <figure>
-              <img src="./public/innovation.png" alt="" />
+                <img src="{{ Storage::url($data->programimage2) }}" alt="{!!$data->programtitle2!!}" />
             </figure>
             <div class="details">
-              <h3>Innovation & Research</h3>
-              <p>
-                Invests in research & development to explore new technologies,
-                processes, & duct innovations.
+                <h3>{!!$data->programtitle2!!}</h3>
+                <p>
+                    {!!$data->programdescription2!!}
+
               </p>
             </div>
           </div>
           <div class="program">
             <figure>
-              <img src="./public/training.png" alt="" />
+                <img src="{{ Storage::url($data->programimage3) }}" alt="{!!$data->programtitle3!!}" />
             </figure>
             <div class="details">
-              <h3>Employee Training & Development</h3>
+                <h3>{!!$data->programtitle3!!}</h3>
               <p>
-                Prioritizes training & development of employees, ensuring a
-                skilled & kowledgeable workforce.
+                {!!$data->programdescription3!!}
+
               </p>
             </div>
           </div>
@@ -289,96 +279,39 @@
         <span class="section-title">Blogs & News</span>
         <h1>Special Information</h1>
         <div class="blogs">
-          <div class="blog">
-            <figure>
-              <img src="./public/milk matters.jpg" alt="" />
+            @php
+    // Sort the $blogs array by updated_at attribute in descending order
+    $sortedBlogs = $blogs->sortByDesc('updated_at')->values();
+@endphp
 
-              <span>information</span>
+@foreach ($sortedBlogs as $blog)
+    @if ($loop->index < 3) <!-- Display only the first three blogs -->
+        <div class="blog">
+            <figure>
+                <img src="{{ asset('blog_images/' . $blog->image) }}" alt="{{ $blog->title }}" />
+                <span>information</span>
             </figure>
             <div class="blog-details">
-              <h2>
-                Milk Matters: Exploring the Wonders of Nature's Perfect Food
-              </h2>
-              <div class="published-details">
-                <span>
-                  <img src="./public/author.svg" alt="" />
-                  Sujan Rai
-                </span>
-                <span>
-                  <img src="./public/calendar.svg" alt="" />
-                  March 3, 2023
-                </span>
-              </div>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum
-                laudantium totam enim temporibus incidunt unde inventore libero
-                deleniti nostrum possimus hic, commodi aliquam voluptatibus illo
-                sunt sequi amet, suscipit nisi?
-              </p>
-              <a href="#"
-                >Read More <img src="./public/arrow copy.svg" alt=""
-              /></a>
+                <h2>{{ $blog->title }}</h2>
+                <div class="published-details">
+                    <span>
+                        <img src="./public/author.svg" alt="" />
+                        Admin
+                    </span>
+                    <span>
+                        <img src="./public/calendar.svg" alt="" />
+                        {{ $blog->updated_at->format('Y-m-d') }}
+                    </span>
+                </div>
+                <p>{!! substr(strip_tags($blog->content), 0, 200) !!}</p>
+                <a href="{{ route('blog.show', ['blog' => $blog->id]) }}">Read More <img src="./public/arrow copy.svg" alt="" /></a>
             </div>
-          </div>
-          <div class="blog">
-            <figure>
-              <img src="./public/delicious.jpg" alt="" />
-              <span>information</span>
-            </figure>
-            <div class="blog-details">
-              <h2>Udderly Delicious: A Journey into Premium Dairy Products</h2>
-              <div class="published-details">
-                <span>
-                  <img src="./public/author.svg" alt="" />
-                  Sujan Rai
-                </span>
-                <span>
-                  <img src="./public/calendar.svg" alt="" />
-                  March 3, 2023
-                </span>
-              </div>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum
-                laudantium totam enim temporibus incidunt unde inventore libero
-                deleniti nostrum possimus hic, commodi aliquam voluptatibus illo
-                sunt sequi amet, suscipit nisi?
-              </p>
-              <a href="#"
-                >Read More <img src="./public/arrow copy.svg" alt=""
-              /></a>
-            </div>
-          </div>
-          <div class="blog">
-            <figure>
-              <img src="./public/milk matters.jpg" alt="" />
+        </div>
+    @endif
+@endforeach
 
-              <span>information</span>
-            </figure>
-            <div class="blog-details">
-              <h2>
-                Milk Matters: Exploring the Wonders of Nature's Perfect Food
-              </h2>
-              <div class="published-details">
-                <span>
-                  <img src="./public/author.svg" alt="" />
-                  Sujan Rai
-                </span>
-                <span>
-                  <img src="./public/calendar.svg" alt="" />
-                  March 3, 2023
-                </span>
-              </div>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum
-                laudantium totam enim temporibus incidunt unde inventore libero
-                deleniti nostrum possimus hic, commodi aliquam voluptatibus illo
-                sunt sequi amet, suscipit nisi?
-              </p>
-              <a href="#"
-                >Read More <img src="./public/arrow copy.svg" alt=""
-              /></a>
-            </div>
-          </div>
+
+
         </div>
       </section>
       <!--Blogs End-->
@@ -386,7 +319,7 @@
       <section class="newsletter-container container">
         <div class="newsletter">
           <figure class="image">
-            <img src="./public/newsletter.png" alt="" />
+            <img src="{{ Storage::url($data->newsletterimage) }}" alt="" />
           </figure>
           <div class="form">
             <h1>Subscribe to our Newsletter</h1>

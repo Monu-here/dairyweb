@@ -69,7 +69,7 @@ class Helper{
             //Advantages Section
             'advheading'=>self::getSetting('adv_heading')??'',
             'advparagraph'=>self::getSetting('adv_paragraph')??'',
-            'advimage'=>self::getSetting('adv_image')??'',
+            'adv_image'=>self::getSetting('adv_image')??'',
 
             //testimonial Section
             'testheading'=>self::getSetting('test_heading'),

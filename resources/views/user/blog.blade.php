@@ -41,8 +41,8 @@
                 </span>
               </div>
               <p>
-                {!! $blog->content!!}
-              </p>
+                {!! substr(strip_tags($blog->content), 0, 200) !!} <!-- Show first 200 characters -->
+            </p>
               <a href="{{ route('blog.show', ['blog' => $blog->id]) }}"
                 >Read More <img src="./arrow copy.svg" alt=""
               /></a>

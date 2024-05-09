@@ -25,8 +25,8 @@
             <h1>{{ $product->name }}</h1>
             <p>{!! $product->description !!}</p>
             <div class="actions">
-              <span>Rs.{{ $product->price }}</span>
-              <div class="buttons">
+                <span>Rs.{{ number_format($product->price, 0) }}</span>
+                <div class="buttons">
                 <button class="product-button">
                   <img
                     src="./heart.svg"
@@ -43,12 +43,13 @@
                 </button>
               </div>
             </div>
-          </div>
+        </div>
+
 
         @endforeach
 
 
-      </div>
+    </div>
     </section>
   </main>
 

@@ -20,6 +20,7 @@ class SettingController extends Controller
 
 
             return view('admin.settings.home', compact('data', 'visions', 'missions', 'features', 'services'));
+
         } else {
             $home_heading1 = $request->heading1 ?? '';
             $home_paragraph1 = $request->paragraph1 ?? '';
@@ -59,7 +60,7 @@ class SettingController extends Controller
 
 
             $program_heading = $request->programheading ?? '';
-            $program_paragraph = $request->proogrampara ?? '';
+            $program_paragraph = $request->programpara ?? '';
             $program_button_text = $request->programbtntext ?? '';
             $program_button_link = $request->programbtnlink ?? '';
             $program_title1=$request->programtitle1??'';
@@ -146,6 +147,8 @@ class SettingController extends Controller
             if ($request->hasFile('advimage')) {
                 $imagePath = $request->file('advimage')->storeAs('public/home_images', $request->file('advimage')->getClientOriginalName());
                 Helper::setSetting('adv_image', $imagePath);
+
+
             }
             if ($request->hasFile('programimage1')) {
                 $imagePath = $request->file('programimage1')->storeAs('public/home_images', $request->file('programimage1')->getClientOriginalName());

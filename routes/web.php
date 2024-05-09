@@ -17,9 +17,10 @@ $products = Product::all();
 
 Route::get('/', function () {
     $products = Product::all();
+    $blogs=Blog::all();
     $testimonial = Testimonial::all();
 
-    return view('user.home', ['products' => $products, 'testimonial' => $testimonial]);
+    return view('user.home', ['products' => $products, 'testimonial' => $testimonial, 'blogs'=>$blogs]);
 });
 
 Route::get('/about', function () {
