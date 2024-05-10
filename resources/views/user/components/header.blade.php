@@ -1,7 +1,10 @@
 <header class="nav">
+    @php
+        $data=App\Helper::getHomePageSetting();
+    @endphp
     <div class="container wrapper">
         <figure class="logo">
-            <h1>LOGO</h1>
+            <h1><img src="{{ Storage::url($data->logo) }}" alt="" style="height:50px; width:120px;"></h1>
         </figure>
         <nav class="nav-bar">
             <ul class="nav-list">

@@ -104,14 +104,14 @@
         <h1 class="product-heading">View All Product</h1>
         <div class="products-container container">
             @php $count = 0; @endphp
-            @foreach ($products as $product)
+            @foreach ($products->reverse() as $product)
                 @if ($count < 4)
                     <div class="product">
-                        <figure class="product-image">
+                        <figure class="product-image" style="overflow: hidden; padding-bottom:5px; border-top-right-radius:10%; border-top-left-radius:30%">
                             <img src="{{ asset('product_images/' . $product->image) }}" />
                         </figure>
                         <h1>{!! $product->name !!}</h1>
-                        <p>{!! $product->description !!}</p>
+                        <p>{!! $product->sdescription !!}</p>
                         <div class="actions">
                             <span>Rs.{{ number_format($product->price, 0) }}</span>
                             <div class="buttons">
@@ -295,16 +295,16 @@
                 <h2>{{ $blog->title }}</h2>
                 <div class="published-details">
                     <span>
-                        <img src="./public/author.svg" alt="" />
+                        <img src="./author.svg" alt="" />
                         Admin
                     </span>
                     <span>
-                        <img src="./public/calendar.svg" alt="" />
+                        <img src="./calendar.svg" alt="" />
                         {{ $blog->updated_at->format('Y-m-d') }}
                     </span>
                 </div>
                 <p>{!! substr(strip_tags($blog->content), 0, 200) !!}</p>
-                <a href="{{ route('blog.show', ['blog' => $blog->id]) }}">Read More <img src="./public/arrow copy.svg" alt="" /></a>
+                <a href="{{ route('blog.show', ['blog' => $blog->id]) }}">Read More <img src="./arrow copy.svg" alt="" /></a>
             </div>
         </div>
     @endif

@@ -34,6 +34,19 @@
         <h3>Home Page Settings</h3>
         <hr>
         @csrf
+        <div class="header-section">
+            <h4 style="text-decoration:underline;">Header Section:</h4>
+            <div class="row mt-3">
+                <div class="col-md-4">
+
+                    <label for="Welcome Image">LOGO:</label>
+
+                    <input type="file" class="form-control image-upload dropify" id="image" name="logo"
+                        data-default-file="{{ Storage::url($data->logo) }}" accept="image/*">
+                </div>
+            </div>
+
+        </div>
         <div class="first-section">
             <div class="row">
                 <h4 style="text-decoration:underline;">First Section:</h4>

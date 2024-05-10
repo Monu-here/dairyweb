@@ -38,22 +38,27 @@
                     <!-- First Row: Product Title and Description -->
 
                     <div class="row mb-3">
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <label for="name" class="form-label">Product Name</label>
                             <input type="text" class="form-control" id="name" name="name"
                                 value="{{ old('name') }}">
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-2">
                             <label for="price" class="form-label">Price</label>
                             <input type="number" class="form-control" id="price" name="price" step="0.01"
                                 value="{{ old('price') }}">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="name" class="form-label">Short Description</label>
+                            <textarea type="text" class="form-control" id="sdescription" row="3" name="sdescription"
+                                value=""></textarea>
                         </div>
 
                     </div>
                     <div class="row mb-3">
                         <div class="col-md-8">
                             <label for="description" class="form-label">Description</label>
-                            <textarea class="form-control" id="summernote" name="description" rows="1">{{ old('description') }}</textarea>
+                            <textarea class="form-control" name="description" id="summernote">{{ old('description') }}</textarea>
                         </div>
                         <div class="col-md-4">
                             <label for="image" class="form-label">Product Image</label>
@@ -100,7 +105,7 @@
                                     </div>
                                 </td>
                                 <td class="align-middle">{{ $product->name }}</td>
-                                <td class="align-middle">{!! $product->description !!}</td>
+                                <td class="align-middle">{!! $product->sdescription !!}</td>
                                 <td class="align-middle">Rs.{{ $product->price }}</td>
                                 <td class="align-middle">
                                    <a href="{{ route('admin.products.edit', ['product' => $product->id]) }}" class="btn btn-primary m-1"><i class="fa fa-pencil-square-o"

@@ -1991,6 +1991,7 @@ template {
   width: 100%;
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 .all-products .products-container .product .product-image img {
   height: 100%;

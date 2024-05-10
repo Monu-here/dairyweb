@@ -7,6 +7,7 @@
     <title>@yield('title')</title>
     <link rel="stylesheet" type="text/css" href="{{ asset('css/styles.css') }}">
 
+
     @yield('css')
 
 </head>

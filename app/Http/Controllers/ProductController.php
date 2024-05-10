@@ -37,6 +37,7 @@ class ProductController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'description' => 'required|string',
+            'sdescription' => 'string|max:100',
             'price' => 'required|numeric',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
@@ -54,6 +55,7 @@ class ProductController extends Controller
         $product = new Product();
         $product->name = $request->input('name');
         $product->description = $request->input('description');
+        $product->sdescription = $request->input('sdescription');
         $product->price = $request->input('price');
         $product->image = $imageName;
         $product->save();
@@ -95,6 +97,7 @@ class ProductController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'description' => 'required|string',
+            'sdescription' => 'string|max:100',
             'price' => 'required|numeric',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
@@ -104,6 +107,7 @@ class ProductController extends Controller
 
         // Update product data
         $product->name = $request->input('name');
+        $product->sdescription = $request->input('sdescription');
         $product->description = $request->input('description');
         $product->price = $request->input('price');
 

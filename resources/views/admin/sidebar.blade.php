@@ -1,10 +1,10 @@
-<div id="sidebar" class="js-sidebar">
+<div id="sidebar"  class="js-sidebar">
     <!-- Content For Sidebar -->
     <div class="h-100">
         <div class="sidebar-logo">
             <a href="#">DAIRY ADMIN</a>
         </div>
-        <ul class="sidebar-nav">
+        <ul class="sidebar-nav" >
 
             <li class="sidebar-item">
                 <a href="#" class="sidebar-link">

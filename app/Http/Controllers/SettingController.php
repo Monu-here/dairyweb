@@ -117,7 +117,10 @@ class SettingController extends Controller
 
 
 
-
+            if ($request->hasFile('logo')) {
+                $imagePath = $request->file('logo')->storeAs('public/home_images', $request->file('logo')->getClientOriginalName());
+                Helper::setSetting('web_logo', $imagePath);
+            }
 
 
             if ($request->hasFile('image1')) {

@@ -19,7 +19,7 @@
                         </div>
                         <div class="card-body">
                             <h5 class="card-title">{{ $product->name }}</h5>
-                            <p class="card-text">{!! $product->description !!}</p>
+                            <p class="card-text">{!! $product->sdescription !!}</p>
                             <p class="card-text"><strong>Price:</strong> Rs.{{ $product->price }}</p>
                         </div>
                     </div>
@@ -51,14 +51,19 @@
                         @method('PUT')
                         <!-- First Row: Product Title and Description -->
                         <div class="row mb-3">
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <label for="name" class="form-label">Product Name</label>
                                 <input type="text" class="form-control" id="name" name="name" value="{{ $product->name }}">
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-2">
                                 <label for="price" class="form-label">Price</label>
                                 <input type="number" class="form-control" id="price" name="price" step="0.01"
                                     value="{{ $product->price }}">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="name" class="form-label">Short Description</label>
+                                <textarea type="text" class="form-control" id="sdescription" row="3" name="sdescription"
+                                    value="">{{ $product->sdescription }}</textarea>
                             </div>
 
                         </div>

@@ -110,7 +110,7 @@
 
                         </div>
                         <div class="col-md-7">
-                            <h3><strong>{{ $blog->title }}</strong></h3>
+                            <h4 style="color: white;"><strong>{{ $blog->title }}</strong></h4>
                             <p>{!! implode(' ', array_slice(str_word_count($blog->content, 1), 0, 40)) !!}...</p>
                         </div>
                         <div class="col-md-2">

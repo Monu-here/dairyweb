@@ -34,6 +34,8 @@ class Helper{
     public static function getHomepageSetting(){
         return (object)[
 
+            'logo'=>self::getSetting('web_logo')??'',
+
             //section 1
             'heading1' => self::getSetting('home_heading1') ?? '',
             'paragraph1' => self::getSetting('home_paragraph1') ?? '',

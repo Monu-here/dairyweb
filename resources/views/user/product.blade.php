@@ -19,11 +19,11 @@
       <div class="products-container container">
         @foreach ($products->reverse() as $product )
         <div class="product">
-            <figure class="product-image">
-              <img src="{{ asset('product_images/' . $product->image) }}" />
+            <figure class="product-image" style="overflow: hidden; padding-bottom:5px; border-top-right-radius:10%; border-top-left-radius:30%">
+                <img src="{{ asset('product_images/' . $product->image) }}" />
             </figure>
             <h1>{{ $product->name }}</h1>
-            <p>{!! $product->description !!}</p>
+            <p>{{ $product->sdescription }}</p>
             <div class="actions">
                 <span>Rs.{{ number_format($product->price, 0) }}</span>
                 <div class="buttons">

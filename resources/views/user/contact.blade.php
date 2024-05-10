@@ -1,9 +1,20 @@
 @extends('user.components.app')
 @section('title', 'Contact')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<style>
+    .info h2{
+        color:#103371;
+        margin: 0;
+    }
+    .info h2 i{
+    }
+</style>
 @section('content')
     <div class="main">
         @php
         $data=App\Helper::getContactPageSetting();
+        $cdata=App\Helper::getFooterPageSetting();
+
         @endphp
 
         <main class="main">
@@ -23,6 +34,24 @@
                     <p>
                         {!!$data->paragraph!!}
                     </p>
+                    <hr>
+                    <div class="info">
+                        <section class="address">
+                            <h2><i class="fas fa-map-marker-alt"></i> Address</h2>
+                            <p>{!!$cdata->address!!}</p>
+                        </section>
+
+                        <section class="email">
+                            <h2><i class="far fa-envelope"></i> Email</h2>
+                            <p>{!!$cdata->email!!}</p>
+                        </section>
+
+                        <section class="phone">
+                            <h2><i class="fa fa-phone"></i> Phone Number</h2>
+                            <p>{!!$cdata->phone!!}</p>
+                        </section>
+                    </div>
+
                 </div>
                 <form class="contact-us-right" action="{{ route('msg.send') }}" method="POST">
                     @csrf
