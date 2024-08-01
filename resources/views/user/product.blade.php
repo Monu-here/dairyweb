@@ -27,20 +27,10 @@
             <div class="actions">
                 <span>Rs.{{ number_format($product->price, 0) }}</span>
                 <div class="buttons">
-                <button class="product-button">
-                  <img
-                    src="./heart.svg"
-                    alt=""
-                    class="product-button-image"
-                  />
-                </button>
-                <button class="product-button">
-                  <img
-                    src="./cart.svg"
-                    alt=""
-                    class="product-button-image"
-                  />
-                </button>
+               
+                <a href="{{route('user.contact')}}"><button class="product-button">
+                  <img src="./phone.svg" alt="" class="product-button-image" />
+              </button></a>
               </div>
             </div>
         </div>

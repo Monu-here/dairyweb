@@ -14,7 +14,7 @@ class MakeAdmin extends Command
      *
      * @var string
      */
-    protected $signature = 'app:make-admin {name} {email} {password}';
+    protected $signature = 'make:admin {name} {email} {password}';
 
     /**
      * The console command description.
