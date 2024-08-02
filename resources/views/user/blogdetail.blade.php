@@ -107,16 +107,22 @@
                     <div class="row">
                         <h4>Related Posts</h4>
                         @foreach ($blogs as $related_blog)
-                            @if ($related_blog->id !== $blog->id) <!-- Check if the related blog is not the current one -->
+                            @if ($related_blog->id !== $blog->id)
+                                <!-- Check if the related blog is not the current one -->
                                 <div class="row mt-2">
                                     <div class="col-6">
                                         <div class="relatedpost">
-                                            <img src="{{ asset('blog_images/' . $related_blog->image) }}" alt="{{ $related_blog->title }}" />
+                                            <img src="{{ asset('blog_images/' . $related_blog->image) }}"
+                                                alt="{{ $related_blog->title }}" />
                                         </div>
                                     </div>
-                                    
+
                                     <div class="col-6">
-                                        <a href="{{ route('blog.show', ['blog' => $related_blog->id]) }}" style="color: #103371"><h5 style="text-align:justify;   white-space: ; word-wrap: break-word;">{{ $related_blog->title }}</h5></a>
+                                        <a href="{{ route('blog.show', ['blog' => $related_blog->id]) }}"
+                                            style="color: #103371">
+                                            <h5 style="text-align:justify;   white-space: ; word-wrap: break-word;">
+                                                {{ $related_blog->title }}</h5>
+                                        </a>
                                     </div>
                                 </div>
                             @endif

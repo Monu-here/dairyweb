@@ -25,7 +25,7 @@
                     <img src="./facebook.svg" alt="" />
                 </figure>
              </a>
-             <a href="{!!$data->instaurl!!}">
+             {{-- <a href="{!!$data->instaurl!!}">
                 <figure>
                     <img src="./insta.svg" alt="" />
                 </figure>
@@ -35,7 +35,7 @@
                 <figure>
                     <img src="./twitter.svg" alt="" />
                 </figure>
-            </a>
+            </a> --}}
         </div>
       </div>
       <div class="links">
